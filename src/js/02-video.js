@@ -1,24 +1,20 @@
-
+import _ from 'lodash';
 const iframe = document.querySelector('iframe');
-    const player = new Vimeo.Player(iframe);
+const player = new Vimeo.Player(iframe);
 
-    player.on('playing', function(timeupdate) {
-        console.log(timeupdate);
-        localStorage.setItem("timeCode:")
-    });
+player.on(
+  'timeupdate',
+  _.throttle(function (data) {
+    localStorage.setItem('videoplayer-current-time', JSON.stringify(data));
+  }, 1000)
+);
 
-    player.getVideoTitle().then(function(title) {
-        console.log('title:', title);
-    });
+player.on('seeking', function (data) {
+  localStorage.setItem('videoplayer-current-time', JSON.stringify(data));
+});
 
-    // const onPlay = function(timeupdate) {
-    //     console.log(timeupdate);
-    //     // data is an object containing properties specific to that event
-    // };
-    
-    // player.on('play', onPlay);
-    
-    
-    // player.on('timeupdate').then(function(seconds) {
-    //     console.log(seconds);
-    // })
+player.on('play', function () {
+  const checkTimeCode =
+    JSON.parse(localStorage.getItem('videoplayer-current-time')) ?? {};
+  player.setCurrentTime(checkTimeCode.seconds);
+});
