@@ -18,7 +18,7 @@
  *                                            false (at end), schedule `callback` to execute after `delay` ms.
  *
  * @returns {Function} A new, throttled, function.
- */function(e,t,a){var n,o=a||{},i=o.noTrailing,l=void 0!==i&&i,r=o.noLeading,u=void 0!==r&&r,m=o.debounceMode,c=void 0===m?void 0:m,s=!1,d=0;function v(){n&&clearTimeout(n)}// Function to cancel next exec
+ */function(e,t,a){var n,o=a||{},i=o.noTrailing,l=void 0!==i&&i,r=o.noLeading,u=void 0!==r&&r,m=o.debounceMode,s=void 0===m?void 0:m,c=!1,d=0;function v(){n&&clearTimeout(n)}// Function to cancel next exec
 /*
    * The `wrapper` function encapsulates all of the throttling / debouncing
    * functionality and when executed will limit the rate at which `callback`
@@ -27,15 +27,15 @@
 function f(){d=Date.now(),t.apply(r,o)}/*
      * If `debounceMode` is true (at begin) this is used to clear the flag
      * to allow future `callback` executions.
-     */function g(){n=void 0}s||(u||!c||n||/*
+     */function g(){n=void 0}c||(u||!s||n||/*
        * Since `wrapper` is being called for the first time and
        * `debounceMode` is true (at begin), execute `callback`
        * and noLeading != true.
-       */f(),v(),void 0===c&&m>e?u?(/*
+       */f(),v(),void 0===s&&m>e?u?(/*
          * In throttle mode with noLeading, if `delay` time has
          * been exceeded, update `lastExec` and schedule `callback`
          * to execute after `delay` ms.
-         */d=Date.now(),l||(n=setTimeout(c?g:f,e))):/*
+         */d=Date.now(),l||(n=setTimeout(s?g:f,e))):/*
          * In throttle mode without noLeading, if `delay` time has been exceeded, execute
          * `callback`.
          */f():!0!==l&&/*
@@ -48,6 +48,6 @@ function f(){d=Date.now(),t.apply(r,o)}/*
        *
        * If `debounceMode` is false (at end), schedule `callback` to
        * execute after `delay` ms.
-       */(n=setTimeout(c?g:f,void 0===c?e-m:e)))}return f.cancel=function(e){var t=(e||{}).upcomingOnly;v(),s=!(void 0!==t&&t)},f}(500,e=>{localStorage.setItem("feedback-form-state",JSON.stringify(feedbackFormState))},{noLeading:!1,noTrailing:!1});function l(t){t.preventDefault(),console.log("email:",n.value),console.log("message:",o.value),e.reset(),localStorage.removeItem("feedback-form-state")}}();//# sourceMappingURL=03-feedback.1eb7f57e.js.map
+       */(n=setTimeout(s?g:f,void 0===s?e-m:e)))}return f.cancel=function(e){var t=(e||{}).upcomingOnly;v(),c=!(void 0!==t&&t)},f}(500,e=>{localStorage.setItem("feedback-form-state",JSON.stringify(e))},{noLeading:!1,noTrailing:!1});function l(t){t.preventDefault(),console.log("email:",n.value),console.log("message:",o.value),e.reset(),localStorage.removeItem("feedback-form-state")}}();//# sourceMappingURL=03-feedback.2fec2b42.js.map
 
-//# sourceMappingURL=03-feedback.1eb7f57e.js.map
+//# sourceMappingURL=03-feedback.2fec2b42.js.map
