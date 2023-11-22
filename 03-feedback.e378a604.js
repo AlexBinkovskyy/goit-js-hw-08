@@ -18,27 +18,27 @@
  *                                            false (at end), schedule `callback` to execute after `delay` ms.
  *
  * @returns {Function} A new, throttled, function.
- */const e=document.querySelector(".feedback-form");e.addEventListener("input",function(e){e.preventDefault();let{elements:{email:t,message:a}}=e.currentTarget;i(feedbackFormState={email:t.value,message:a.value})}),e.addEventListener("submit",r);const t=e.lastElementChild;t.addEventListener("submit",r);const a=JSON.parse(localStorage.getItem("feedback-form-state"))??"",o=e.querySelector('[name="email"]'),n=e.querySelector('[name="message"]');o.value=a.email??"",n.value=a.message??"";const i=function(e,t,a){var o,n=a||{},i=n.noTrailing,r=void 0!==i&&i,l=n.noLeading,c=void 0!==l&&l,s=n.debounceMode,m=void 0===s?void 0:s,u=!1,d=0;function v(){o&&clearTimeout(o)}// Function to cancel next exec
+ */const e=document.querySelector(".feedback-form");e.addEventListener("input",function(e){e.preventDefault();let{elements:{email:t,message:a}}=e.currentTarget;i({email:t.value,message:a.value})}),e.addEventListener("submit",l);const t=e.lastElementChild;t.addEventListener("submit",l);const a=JSON.parse(localStorage.getItem("feedback-form-state"))??"",o=e.querySelector('[name="email"]'),n=e.querySelector('[name="message"]');o.value=a.email??"",n.value=a.message??"";const i=function(e,t,a){var o,n=a||{},i=n.noTrailing,l=void 0!==i&&i,r=n.noLeading,s=void 0!==r&&r,c=n.debounceMode,m=void 0===c?void 0:c,u=!1,d=0;function v(){o&&clearTimeout(o)}// Function to cancel next exec
 /*
    * The `wrapper` function encapsulates all of the throttling / debouncing
    * functionality and when executed will limit the rate at which `callback`
    * is executed.
-   */function f(){for(var a=arguments.length,n=Array(a),i=0;i<a;i++)n[i]=arguments[i];var l=this,s=Date.now()-d;// Execute `callback` and update the `lastExec` timestamp.
-function f(){d=Date.now(),t.apply(l,n)}/*
+   */function f(){for(var a=arguments.length,n=Array(a),i=0;i<a;i++)n[i]=arguments[i];var r=this,c=Date.now()-d;// Execute `callback` and update the `lastExec` timestamp.
+function f(){d=Date.now(),t.apply(r,n)}/*
      * If `debounceMode` is true (at begin) this is used to clear the flag
      * to allow future `callback` executions.
-     */function g(){o=void 0}u||(c||!m||o||/*
+     */function g(){o=void 0}u||(s||!m||o||/*
        * Since `wrapper` is being called for the first time and
        * `debounceMode` is true (at begin), execute `callback`
        * and noLeading != true.
-       */f(),v(),void 0===m&&s>e?c?(/*
+       */f(),v(),void 0===m&&c>e?s?(/*
          * In throttle mode with noLeading, if `delay` time has
          * been exceeded, update `lastExec` and schedule `callback`
          * to execute after `delay` ms.
-         */d=Date.now(),r||(o=setTimeout(m?g:f,e))):/*
+         */d=Date.now(),l||(o=setTimeout(m?g:f,e))):/*
          * In throttle mode without noLeading, if `delay` time has been exceeded, execute
          * `callback`.
-         */f():!0!==r&&/*
+         */f():!0!==l&&/*
        * In trailing throttle mode, since `delay` time has not been
        * exceeded, schedule `callback` to execute `delay` ms after most
        * recent execution.
@@ -48,6 +48,6 @@ function f(){d=Date.now(),t.apply(l,n)}/*
        *
        * If `debounceMode` is false (at end), schedule `callback` to
        * execute after `delay` ms.
-       */(o=setTimeout(m?g:f,void 0===m?e-s:e)))}return f.cancel=function(e){var t=(e||{}).upcomingOnly;v(),u=!(void 0!==t&&t)},f}(500,e=>{localStorage.setItem("feedback-form-state",JSON.stringify(feedbackFormState))},{noLeading:!1,noTrailing:!1});function r(t){t.preventDefault(),console.log("email:",o.value),console.log("message:",n.value),e.reset(),localStorage.removeItem("feedback-form-state")}//# sourceMappingURL=03-feedback.9bfef29e.js.map
+       */(o=setTimeout(m?g:f,void 0===m?e-c:e)))}return f.cancel=function(e){var t=(e||{}).upcomingOnly;v(),u=!(void 0!==t&&t)},f}(500,e=>{localStorage.setItem("feedback-form-state",JSON.stringify(feedbackFormState))},{noLeading:!1,noTrailing:!1});function l(t){t.preventDefault(),console.log("email:",o.value),console.log("message:",n.value),e.reset(),localStorage.removeItem("feedback-form-state")}//# sourceMappingURL=03-feedback.e378a604.js.map
 
-//# sourceMappingURL=03-feedback.9bfef29e.js.map
+//# sourceMappingURL=03-feedback.e378a604.js.map
