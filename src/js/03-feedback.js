@@ -17,8 +17,7 @@ const throttleFunc = throttle(
 	500,
 	(feedbackFormState) => {
 		localStorage.setItem('feedback-form-state', JSON.stringify(feedbackFormState));
-	},
-	{ noLeading: false, noTrailing: false }
+	}
 );
 
 
