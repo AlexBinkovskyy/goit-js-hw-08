@@ -24,7 +24,7 @@ const throttleFunc = throttle(
 function inputValue(event) {
     event.preventDefault();
     const { elements : {email, message}} = event.currentTarget;
-    feedbackFormState = {
+    let feedbackFormState = {
         'email': email.value,
         'message': message.value
     };
