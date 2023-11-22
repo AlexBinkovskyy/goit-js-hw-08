@@ -13,6 +13,13 @@ const messageInput = form.querySelector('[name="message"]');
 emailInput.value = checkValues.email ?? '';
 messageInput.value = checkValues.message ?? '';
 
+const throttleFunc = throttle(
+	500,
+	(feedbackFormState) => {
+		localStorage.setItem('feedback-form-state', JSON.stringify(feedbackFormState));
+	},
+	{ noLeading: false, noTrailing: false }
+);
 
 
 function inputValue(event) {
@@ -25,13 +32,6 @@ function inputValue(event) {
     throttleFunc(feedbackFormState);
 }
 
-const throttleFunc = throttle(
-	500,
-	(num) => {
-		localStorage.setItem('feedback-form-state', JSON.stringify(feedbackFormState));
-	},
-	{ noLeading: false, noTrailing: false }
-);
 
 function onSubmit(event) {
     event.preventDefault();
