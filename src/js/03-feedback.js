@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import { throttle } from 'throttle-debounce';
 
 const form = document.querySelector('.feedback-form');
 form.addEventListener('input', inputValue);
@@ -13,14 +13,22 @@ const messageInput = form.querySelector('[name="message"]');
 emailInput.value = checkValues.email ?? '';
 messageInput.value = checkValues.message ?? '';
 
+const throttleFunc = throttle(
+	500,
+	(num) => {
+		localStorage.setItem('feedback-form-state', JSON.stringify(feedbackFormState));
+	},
+	{ noLeading: false, noTrailing: false }
+);
+
 function inputValue(event) {
     event.preventDefault();
     const { elements : {email, message}} = event.currentTarget;
     feedbackFormState = {
         'email': email.value,
         'message': message.value
-    }
-    localStorage.setItem('feedback-form-state', JSON.stringify(feedbackFormState));
+    };
+    throttleFunc(feedbackFormState);
 }
 
 function onSubmit(event) {
