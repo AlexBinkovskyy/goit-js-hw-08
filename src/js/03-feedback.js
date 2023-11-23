@@ -35,8 +35,7 @@ function inputValue(event) {
 
 function onSubmit(event) {
   event.preventDefault();
-  console.log('email:', emailInput.value);
-  console.log('message:', messageInput.value);
+  console.log(localStorage.getItem('feedback-form-state'));
   form.reset();
   localStorage.removeItem('feedback-form-state');
 }
