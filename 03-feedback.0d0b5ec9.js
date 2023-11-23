@@ -1,4 +1,4 @@
-!function(){let e=document.querySelector(".feedback-form");e.addEventListener("input",function(e){e.preventDefault();let{elements:{email:t,message:a}}=e.currentTarget;l({email:t.value,message:a.value})}),e.addEventListener("submit",i);let t=e.lastElementChild;t.addEventListener("submit",i);let a=JSON.parse(localStorage.getItem("feedback-form-state"))??"",o=e.querySelector('[name="email"]'),n=e.querySelector('[name="message"]');o.value=a.email??"",n.value=a.message??"";let l=/* eslint-disable no-undefined,no-param-reassign,no-shadow *//**
+/* eslint-disable no-undefined,no-param-reassign,no-shadow *//**
  * Throttle execution of a function. Especially useful for rate limiting
  * execution of handlers on events like resize and scroll.
  *
@@ -18,27 +18,27 @@
  *                                            false (at end), schedule `callback` to execute after `delay` ms.
  *
  * @returns {Function} A new, throttled, function.
- */function(e,t,a){var o,n={},l=n.noTrailing,i=void 0!==l&&l,r=n.noLeading,u=void 0!==r&&r,m=n.debounceMode,s=void 0===m?void 0:m,c=!1,v=0;function d(){o&&clearTimeout(o)}// Function to cancel next exec
+ */const e=document.querySelector(".feedback-form");e.addEventListener("input",function(e){e.preventDefault();let{elements:{email:t,message:o}}=e.currentTarget;r({email:t.value,message:o.value})}),e.addEventListener("submit",i);const t=e.lastElementChild;t.addEventListener("submit",i);const o=JSON.parse(localStorage.getItem("feedback-form-state"))??"",a=e.querySelector('[name="email"]'),n=e.querySelector('[name="message"]');a.value=o.email??"",n.value=o.message??"";const r=function(e,t,o){var a,n={},r=n.noTrailing,i=void 0!==r&&r,l=n.noLeading,c=void 0!==l&&l,s=n.debounceMode,m=void 0===s?void 0:s,u=!1,d=0;function f(){a&&clearTimeout(a)}// Function to cancel next exec
 /*
    * The `wrapper` function encapsulates all of the throttling / debouncing
    * functionality and when executed will limit the rate at which `callback`
    * is executed.
-   */function f(){for(var a=arguments.length,n=Array(a),l=0;l<a;l++)n[l]=arguments[l];var r=this,m=Date.now()-v;// Execute `callback` and update the `lastExec` timestamp.
-function f(){v=Date.now(),t.apply(r,n)}/*
+   */function v(){for(var o=arguments.length,n=Array(o),r=0;r<o;r++)n[r]=arguments[r];var l=this,s=Date.now()-d;// Execute `callback` and update the `lastExec` timestamp.
+function v(){d=Date.now(),t.apply(l,n)}/*
      * If `debounceMode` is true (at begin) this is used to clear the flag
      * to allow future `callback` executions.
-     */function g(){o=void 0}c||(u||!s||o||/*
+     */function g(){a=void 0}u||(c||!m||a||/*
        * Since `wrapper` is being called for the first time and
        * `debounceMode` is true (at begin), execute `callback`
        * and noLeading != true.
-       */f(),d(),void 0===s&&m>e?u?(/*
+       */v(),f(),void 0===m&&s>e?c?(/*
          * In throttle mode with noLeading, if `delay` time has
          * been exceeded, update `lastExec` and schedule `callback`
          * to execute after `delay` ms.
-         */v=Date.now(),i||(o=setTimeout(s?g:f,e))):/*
+         */d=Date.now(),i||(a=setTimeout(m?g:v,e))):/*
          * In throttle mode without noLeading, if `delay` time has been exceeded, execute
          * `callback`.
-         */f():!0!==i&&/*
+         */v():!0!==i&&/*
        * In trailing throttle mode, since `delay` time has not been
        * exceeded, schedule `callback` to execute `delay` ms after most
        * recent execution.
@@ -48,6 +48,6 @@ function f(){v=Date.now(),t.apply(r,n)}/*
        *
        * If `debounceMode` is false (at end), schedule `callback` to
        * execute after `delay` ms.
-       */(o=setTimeout(s?g:f,void 0===s?e-m:e)))}return f.cancel=function(e){var t=(e||{}).upcomingOnly;d(),c=!(void 0!==t&&t)},f}(500,e=>{localStorage.setItem("feedback-form-state",JSON.stringify(e))});function i(t){t.preventDefault(),console.log("email:",o.value),console.log("message:",n.value),e.reset(),localStorage.removeItem("feedback-form-state")}}();//# sourceMappingURL=03-feedback.98f0796c.js.map
+       */(a=setTimeout(m?g:v,void 0===m?e-s:e)))}return v.cancel=function(e){var t=(e||{}).upcomingOnly;f(),u=!(void 0!==t&&t)},v}(500,e=>{localStorage.setItem("feedback-form-state",JSON.stringify(e))});function i(t){t.preventDefault(),console.log(localStorage.getItem("feedback-form-state")),e.reset(),localStorage.removeItem("feedback-form-state")}//# sourceMappingURL=03-feedback.0d0b5ec9.js.map
 
-//# sourceMappingURL=03-feedback.98f0796c.js.map
+//# sourceMappingURL=03-feedback.0d0b5ec9.js.map
