@@ -9,12 +9,9 @@ player.on(
   }, 1000)
 );
 
-player.on('seeking', function (data) {
-  localStorage.setItem('videoplayer-current-time', JSON.stringify(data));
-});
-
-player.on('play', function () {
+player.on('loaded', function () {
   const checkTimeCode =
     JSON.parse(localStorage.getItem('videoplayer-current-time')) ?? {};
-  player.setCurrentTime(checkTimeCode.seconds);
-});
+    player.setCurrentTime(checkTimeCode.seconds);
+ });
+
