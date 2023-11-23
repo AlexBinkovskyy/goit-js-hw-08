@@ -11,7 +11,6 @@ player.on(
 
 player.on('loaded', function () {
   const checkTimeCode =
-    JSON.parse(localStorage.getItem('videoplayer-current-time')) ?? {};
-    player.setCurrentTime(checkTimeCode.seconds);
- });
-
+    JSON.parse(localStorage.getItem('videoplayer-current-time')) ?? {"seconds":0};
+  player.setCurrentTime(checkTimeCode.seconds);
+});
