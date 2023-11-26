@@ -1,4 +1,4 @@
-!function(){let e=document.querySelector(".feedback-form");e.addEventListener("input",function(e){e.preventDefault();let{elements:{email:t,message:a}}=e.currentTarget;i({email:t.value,message:a.value})}),e.addEventListener("submit",l);let t=e.lastElementChild;t.addEventListener("submit",l);let a=JSON.parse(localStorage.getItem("feedback-form-state"))??"",o=e.querySelector('[name="email"]'),n=e.querySelector('[name="message"]');o.value=a.email??"",n.value=a.message??"";let i=/* eslint-disable no-undefined,no-param-reassign,no-shadow *//**
+!function(){let e=document.querySelector(".feedback-form");e.addEventListener("input",function(e){e.preventDefault();let{elements:{email:t,message:a}}=e.currentTarget;r({email:t.value,message:a.value})}),e.addEventListener("submit",i);let t=e.lastElementChild;t.addEventListener("submit",i);let a=JSON.parse(localStorage.getItem("feedback-form-state"))??"",o=e.querySelector('[name="email"]'),n=e.querySelector('[name="message"]');o.value=a.email??"",n.value=a.message??"";let r=/* eslint-disable no-undefined,no-param-reassign,no-shadow *//**
  * Throttle execution of a function. Especially useful for rate limiting
  * execution of handlers on events like resize and scroll.
  *
@@ -18,13 +18,13 @@
  *                                            false (at end), schedule `callback` to execute after `delay` ms.
  *
  * @returns {Function} A new, throttled, function.
- */function(e,t,a){var o,n={},i=n.noTrailing,l=void 0!==i&&i,r=n.noLeading,c=void 0!==r&&r,m=n.debounceMode,u=void 0===m?void 0:m,s=!1,d=0;function f(){o&&clearTimeout(o)}// Function to cancel next exec
+ */function(e,t,a){var o,n={},r=n.noTrailing,i=void 0!==r&&r,l=n.noLeading,c=void 0!==l&&l,m=n.debounceMode,u=void 0===m?void 0:m,s=!1,d=0;function f(){o&&clearTimeout(o)}// Function to cancel next exec
 /*
    * The `wrapper` function encapsulates all of the throttling / debouncing
    * functionality and when executed will limit the rate at which `callback`
    * is executed.
-   */function v(){for(var a=arguments.length,n=Array(a),i=0;i<a;i++)n[i]=arguments[i];var r=this,m=Date.now()-d;// Execute `callback` and update the `lastExec` timestamp.
-function v(){d=Date.now(),t.apply(r,n)}/*
+   */function v(){for(var a=arguments.length,n=Array(a),r=0;r<a;r++)n[r]=arguments[r];var l=this,m=Date.now()-d;// Execute `callback` and update the `lastExec` timestamp.
+function v(){d=Date.now(),t.apply(l,n)}/*
      * If `debounceMode` is true (at begin) this is used to clear the flag
      * to allow future `callback` executions.
      */function g(){o=void 0}s||(c||!u||o||/*
@@ -35,10 +35,10 @@ function v(){d=Date.now(),t.apply(r,n)}/*
          * In throttle mode with noLeading, if `delay` time has
          * been exceeded, update `lastExec` and schedule `callback`
          * to execute after `delay` ms.
-         */d=Date.now(),l||(o=setTimeout(u?g:v,e))):/*
+         */d=Date.now(),i||(o=setTimeout(u?g:v,e))):/*
          * In throttle mode without noLeading, if `delay` time has been exceeded, execute
          * `callback`.
-         */v():!0!==l&&/*
+         */v():!0!==i&&/*
        * In trailing throttle mode, since `delay` time has not been
        * exceeded, schedule `callback` to execute `delay` ms after most
        * recent execution.
@@ -48,6 +48,6 @@ function v(){d=Date.now(),t.apply(r,n)}/*
        *
        * If `debounceMode` is false (at end), schedule `callback` to
        * execute after `delay` ms.
-       */(o=setTimeout(u?g:v,void 0===u?e-m:e)))}return v.cancel=function(e){var t=(e||{}).upcomingOnly;f(),s=!(void 0!==t&&t)},v}(500,e=>{localStorage.setItem("feedback-form-state",JSON.stringify(e))});function l(t){t.preventDefault(),console.log(localStorage.getItem("feedback-form-state")),e.reset(),localStorage.removeItem("feedback-form-state")}}();//# sourceMappingURL=03-feedback.9c52c1ec.js.map
+       */(o=setTimeout(u?g:v,void 0===u?e-m:e)))}return v.cancel=function(e){var t=(e||{}).upcomingOnly;f(),s=!(void 0!==t&&t)},v}(500,e=>{localStorage.setItem("feedback-form-state",JSON.stringify(e))});function i(t){t.preventDefault(),console.log(JSON.parse(localStorage.getItem("feedback-form-state"))),e.reset(),localStorage.removeItem("feedback-form-state")}}();//# sourceMappingURL=03-feedback.5be0345b.js.map
 
-//# sourceMappingURL=03-feedback.9c52c1ec.js.map
+//# sourceMappingURL=03-feedback.5be0345b.js.map
